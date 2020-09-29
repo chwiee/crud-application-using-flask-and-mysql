@@ -2,14 +2,14 @@ version: '2'
 
 services:
   phonebook-mysql:
-    container_name: phonebook-mysql
+    container_name: db
     build:
       context: .
       dockerfile: Dockerfile-mysql
     restart: always
 
   phonebook-app:
-    container_name: phonebook-app
+    container_name: app
     build:
       context: .
       dockerfile: Dockerfile-app
@@ -20,6 +20,7 @@ services:
     restart: always
 
   adminer:
+    container_name: adminer
     image: adminer
     restart: always
     ports:
