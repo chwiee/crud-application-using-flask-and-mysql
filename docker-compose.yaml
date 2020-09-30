@@ -5,14 +5,14 @@ services:
     container_name: db
     build:
       context: .
-      dockerfile: Dockerfile-mysql
+      dockerfile: ./dockerfile-mysql/Dockerfile
     restart: always
 
   phonebook-app:
     container_name: app
     build:
       context: .
-      dockerfile: Dockerfile-app
+      dockerfile: ./dockerfile-app/Dockerfile
     depends_on:
       - phonebook-mysql
     ports:
