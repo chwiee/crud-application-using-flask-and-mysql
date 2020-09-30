@@ -5,4 +5,4 @@ ENV MYSQL_USER dev
 ENV MYSQL_PASSWORD dev
 ENV MYSQL_RANDOM_ROOT_PASSWORD yes
 
-COPY database/ /docker-entrypoint-initdb.d/
+COPY ./database/ /docker-entrypoint-initdb.d/
