@@ -8,14 +8,18 @@ pipeline {
     
     stage ('Get Code from BitBucket'){
       steps {
-       sh 'echo oi'
+        git credentialsId: 'github', url: 'https://github.com/chwiee/crud-application-using-flask-and-mysql.git/'
       }
     }
 
     stage ('SonarQube Analytic'){
       steps{
         withSonarQubeEnv('SonarQube'){
-          sh "${SONAR}/sonar-scanner -e -Dsonar.projectKey=TESTE_FINAL -Dsonar.sources=. -Dsonar.host.url=http://35.173.20.54:9000 -Dsonar.login=91aa821c79d85664cdd8809c5195847a6a302a24"
+          sh "${SONAR}/sonar-scanner \
+          -Dsonar.projectKey=deploy_sonar \
+          -Dsonar.sources=. \
+          -Dsonar.host.url=http://35.173.20.54:9000 \
+          -Dsonar.login=d85e82941f1fa945e6837886c21e370aa71c3f82"
         }
       }
     }
